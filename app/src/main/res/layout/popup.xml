@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+
+
+            android:stretchColumns="2"
+            android:gravity="center"
+            android:id="@+id/table">
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Description" />
+
+                <EditText
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+
+                    android:padding="5dip"
+                    android:layout_weight="1"
+
+
+                    android:background="@drawable/border" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Weight" />
+
+                <Spinner
+
+                    android:layout_width="match_parent"
+
+                    android:padding="5dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:entries="@array/size"
+                    android:id="@+id/size_spinner"
+
+                    />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Fragile" />
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fragility"
+                    android:gravity="start"
+
+                    android:padding="5dip" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Fee" />
+
+                <EditText
+                    android:id="@+id/etPropFee"
+
+
+                    android:inputType="numberDecimal"
+
+                    android:layout_width="match_parent"
+
+                    android:padding="5dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/border" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+
+                    android:textStyle="bold"
+                    android:text="Parcel Pic" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder"
+                    android:id="@+id/uploadPic" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Address To" />
+
+                <EditText
+                    android:id="@+id/etAddrTo"
+                    android:layout_width="match_parent"
+
+                    android:padding="5dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/border" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Pickup point" />
+
+                <EditText
+
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etPpoint"
+                    android:textColor="@color/textColorDark"
+                    android:layout_width="match_parent"
+
+                    android:padding="5dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/border" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:textStyle="bold"
+                    android:text="Recipient" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+
+                    android:id="@+id/etRecipient"
+                    android:layout_width="match_parent"
+
+                    android:padding="5dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/border" />
+                <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/etRecipient"-->
+                <!--android:textColor="@color/textColorDark"-->
+                <!--android:gravity="start"-->
+                <!--android:padding="5dip"-->
+
+                <!--android:background="@drawable/border"/>-->
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="100dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/textColorPrimary"
+            android:layout_height="wrap_content"
+
+            android:text="Send"
+            android:layout_marginBottom="50dp"
+            android:layout_below="@+id/table"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</ScrollView>

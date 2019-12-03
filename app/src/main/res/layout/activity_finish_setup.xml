@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:titleTextColor="@color/textColorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </android.support.design.widget.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="3dp"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/setupadd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/setupsurname"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border"
+                android:enabled="false"
+
+                android:hint="StreetAddress"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/BackgroundDoveGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="PROOF OF RESIDENCE (provide clear pictures)"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/mproof"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.35"
+                android:scaleType="centerCrop"
+
+
+                android:src="@drawable/placeholder" />
+
+            <EditText
+                android:id="@+id/setupidnum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:hint="ID Number"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:paddingTop="10dp"
+                android:textColorHint="@color/BackgroundDoveGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="SCANNED COPY OF ID (provide clear pictures)"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/mSelectIDPic"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.35"
+                android:scaleType="centerCrop"
+
+
+                android:src="@drawable/placeholder" />
+
+
+            <!--<TextView-->
+            <!--android:id="@+id/sutxtname"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toLeftOf="@+id/setupname"-->
+            <!--android:layout_toStartOf="@+id/setupname"-->
+            <!--android:text="Name" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/sutxtsurname"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toLeftOf="@+id/setupsurname"-->
+            <!--android:layout_toStartOf="@+id/setupsurname"-->
+            <!--android:text="Name"-->
+            <!--android:textColor="@color/colorPrimaryDark" />-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Banking Details"
+
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/bankname"
+                android:layout_width="match_parent"
+
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border"
+                android:hint="Bank name /Ecocash /Telecash"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/BackgroundDoveGrey" />
+
+            <EditText
+                android:id="@+id/accnum"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border"
+                android:hint="Account Number /Phone "
+                android:textColor="@color/colorPrimary"
+                android:paddingLeft="6dp"
+                android:textColorHint="@color/BackgroundDoveGrey" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/finish"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:background="@color/colorPrimary"
+                android:text="finish"
+                android:textColor="@color/textColorPrimary" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

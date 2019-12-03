@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="intl_phone_edit__country" type="id" />
+    <item name="intl_phone_edit__phone" type="id" />
+</resources>

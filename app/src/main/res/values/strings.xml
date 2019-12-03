@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Wakho</string>
+    <string name="password">Password</string>
+    <string name="firstname">First Name</string>
+
+    <string-array name="size">
+        <item>0 - 1kgs</item>
+        <item>2-5 kgs </item>
+        <item>6-15 kgs</item>
+        <item>15-30kgs</item>
+        <item>31-50kgs</item>
+        <item>50kgs+</item>
+    </string-array>
+
+
+    <string name="item_image_contentDescription">Country flag</string>
+    <string name="item_preview_country">Zimbabwe</string>
+    <string name="item_preview_dialCode">+263</string>
+    <string name="title_activity_tab">TabActivity</string>
+
+</resources>

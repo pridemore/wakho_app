@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wakho"
+                android:textSize="70dp"
+                android:textColor="#ffffff"
+
+                android:layout_marginTop="40dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="40dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="13dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/textColorPrimary"
+                    android:hint="@string/firstname"
+
+                    android:background="@drawable/opaque_bg" />
+
+                <EditText
+                    android:id="@+id/surname"
+                    android:paddingLeft="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textCapSentences"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/textColorPrimary"
+                    android:hint="Last Name"
+                    android:background="@drawable/opaque_bg" />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textEmailAddress"
+                    android:layout_gravity="center"
+
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/textColorPrimary"
+                    android:hint="Email"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="13dp"
+                    android:background="@drawable/opaque_bg" />
+
+                <com.pamsillah.wakho.Utils.IntlPhoneInput
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:flagPaddingStart="9dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/opaque_bg"
+                    app:textColor="@color/textColorPrimary"
+                    android:layout_marginBottom="20dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:id="@+id/phone" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="13dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/textColorPrimary"
+                    android:hint="@string/password"
+                    android:background="@drawable/opaque_bg" />
+
+                <EditText
+                    android:id="@+id/repeatPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Repeat Password"
+                    android:layout_gravity="center"
+                    android:imeOptions="actionUnspecified"
+                    android:paddingLeft="13dp"
+                    android:maxLines="1"
+                    android:layout_marginBottom="20dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/textColorPrimary"
+                    android:background="@drawable/opaque_bg" />
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/border"
+                    android:text="Register"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

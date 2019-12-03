@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/full_post_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/whoelse" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_single_title"
+            android:textSize="30sp"
+            android:text="Maize Meal"
+            android:layout_gravity="center"
+            android:layout_marginTop="9dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/BackgroundDoveGrey"
+            android:layout_marginTop="9dp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:id="@+id/details">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/fragileicon"
+                android:src="@drawable/fragile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragileicon"
+                android:text="Fragility: "
+                android:id="@+id/fragtxt"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragtxt"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:id="@+id/frag_value"
+                android:text="3"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/weight"
+                android:id="@+id/weighticon"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/othertxt"
+                android:layout_toStartOf="@+id/othertxt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size: "
+                android:layout_below="@+id/weighticon"
+                android:layout_toRightOf="@+id/fragtxt"
+                android:layout_marginLeft="80dp"
+                android:textSize="15dp"
+                android:id="@+id/weightxt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weight_value"
+                android:text="105kg"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_below="@+id/weightxt"
+                android:layout_alignRight="@+id/weightxt"
+                android:layout_alignEnd="@+id/weightxt" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/money"
+                android:padding="0dp"
+                android:id="@+id/othericon"
+                android:layout_alignBottom="@+id/weighticon"
+                android:layout_alignLeft="@+id/othertxt"
+                android:layout_alignStart="@+id/othertxt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fee: "
+                android:textSize="15dp"
+                android:layout_below="@+id/othericon"
+                android:layout_toRightOf="@+id/weightxt"
+                android:layout_marginLeft="80dp"
+                android:id="@+id/othertxt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$5.00"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_alignBottom="@+id/weight_value"
+                android:layout_alignRight="@+id/othertxt"
+                android:layout_alignEnd="@+id/othertxt" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/BackgroundDoveGrey"
+            android:layout_marginTop="9dp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descr"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:padding="20dp"
+            android:text="Description: 50 kilos of maize meal" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postsngleto"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:padding="20dp"
+            android:text="To: Chivhu" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postsnglefrom"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:padding="20dp"
+            android:text="From: Masvingo" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postspickup"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:padding="20dp"
+            android:text="Pick Up: Chivhu Pick n Pay" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postsfee"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:padding="20dp"
+            android:text="Deliver by: 15 June 2017" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="60dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:id="@+id/quote"
+                android:layout_gravity="center"
+                android:text="Quote"
+                android:textColor="@color/textColorPrimary"
+                android:background="@drawable/gradient_bg" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:id="@+id/accept"
+                android:layout_gravity="center"
+                android:text="Accept"
+                android:textColor="@color/textColorPrimary"
+                android:background="@drawable/gradient_bg"
+                android:layout_marginLeft="50dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

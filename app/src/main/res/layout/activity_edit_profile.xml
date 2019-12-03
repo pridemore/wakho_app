@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/header_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/materialbg2" />
+        <!--<Spinner-->
+        <!--android:id="@+id/spinner"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:prompt="@string/editpic"-->
+        <!--android:layout_toRightOf="@+id/editpic"-->
+        <!--android:layout_below="@+id/editpic"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click on the image to change it"
+            android:textColor="@color/textColorPrimary"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp" />
+
+        <ImageView
+            android:id="@+id/editpic"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/header_cover_image"
+            android:layout_centerHorizontal="true"
+            android:onClick="loadImagefromGallery"
+            android:layout_marginTop="-60dp"
+
+            android:elevation="5dp"
+
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder" />
+
+        <RelativeLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_cover_image"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="4dp"
+            android:paddingBottom="24dp">
+
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="76dp"
+                android:textColor="#fff"
+                android:text="Pammella Sillah"
+                android:enabled="false"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:hint="+263774389853"
+                android:textColorHint="#ffff"
+                android:textColor="#ffff"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/profile_layout"
+            android:layout_height="wrap_content"
+            android:id="@+id/card">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_layout"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout2">
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:clickable="true"
+                    android:textColor="#ffff"
+                    android:gravity="center"
+                    android:textColorHint="@color/BackgroundDoveGrey"
+                    android:hint="Email Address"
+                    android:id="@+id/email"
+                    android:padding="20dp"
+                    android:text="" />
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:elevation="4dp"
+                    android:padding="20dp"
+                    android:textColor="#ffff"
+                    android:id="@+id/adress"
+                    android:hint="Street Adress"
+                    android:textColorHint="@color/BackgroundDoveGrey"
+                    android:text="" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"
+                        android:textColor="#ffff"
+
+                        android:layout_weight="0.5"
+                        android:hint="Surbub"
+                        android:textColorHint="@color/BackgroundDoveGrey"
+                        android:inputType="text"
+                        android:padding="20dp"
+                        android:textAlignment="center"
+                        android:id="@+id/city" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"
+                        android:textColor="#ffff"
+                        android:textColorHint="@color/BackgroundDoveGrey"
+                        android:layout_weight="0.5"
+                        android:hint="City"
+                        android:inputType="text"
+                        android:padding="20dp"
+                        android:textAlignment="center"
+                        android:id="@+id/surbub" />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:clickable="true"
+                    android:textColor="#ffff"
+                    android:textColorHint="@color/BackgroundDoveGrey"
+                    android:hint="Country"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/country" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:clickable="true"
+                    android:textColor="#ffff"
+
+                    android:textColorHint="@color/BackgroundDoveGrey"
+                    android:hint="Enter New Password"
+                    android:inputType="textPassword"
+                    android:padding="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/password" />
+
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:hint="RepeatPassword"
+                    android:background="@color/colorPrimaryDark"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:textColor="#ffff"
+                    android:textColorHint="#ffff"
+                    android:padding="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/repeatPassword"
+                    android:inputType="textPassword" />
+
+                <!--<TextView-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:background="#fff"-->
+                <!--android:clickable="true"-->
+                <!--android:elevation="4dp"-->
+                <!--android:padding="20dp"-->
+                <!--android:text="Lorem ipsum dolor sit ame" />-->
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/card">
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:drawableLeft="@drawable/ic_done_white_24dp"
+                android:id="@+id/done_editing" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:drawableLeft="@drawable/ic_cancel_white_24dp"
+                android:id="@+id/cancel_editing"
+                android:layout_toRightOf="@+id/done_editing" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

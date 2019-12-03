@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "872087857520",
+    "firebase_url": "https://wakhoapp.firebaseio.com",
+    "project_id": "wakhoapp",
+    "storage_bucket": "wakhoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872087857520:android:206538fbd4a54ebf",
+        "android_client_info": {
+          "package_name": "com.pamsillah.wakho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872087857520-c64h0aptpcg20uvqiep3a0ga3cd5qjg4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pamsillah.wakho",
+            "certificate_hash": "e737a5db31d4ec1781bfed3b25ae92893e1b30e9"
+          }
+        },
+        {
+          "client_id": "872087857520-p3bsiuud3vm9gtehr0k18l1v56hhd0ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWiyhe0REXd6KtvArMPamaWIe4rlj2U_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872087857520-p3bsiuud3vm9gtehr0k18l1v56hhd0ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

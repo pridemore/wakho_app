@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/cardview"
+
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:src="@drawable/fridge"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:id="@+id/postImage" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/grad_post"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Depature : 27/12/2017"
+                        android:id="@+id/departDate"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/solidbackground"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginBottom="2dp"
+
+                        android:textColor="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/agent_img"
+                        android:layout_width="67dp"
+
+
+                        android:layout_height="61dp"
+                        android:layout_marginRight="5dp"
+
+                        android:src="@drawable/blulogo"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/agent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/textColorPrimary"
+                        android:text="Sithole" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/recipient"
+                        android:text="Recipient : Allen Bonasi"
+                        android:textColor="@color/textColorPrimary"
+                        android:layout_weight="0.32" />
+
+                    <TextView
+                        android:id="@+id/post_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FRIDGE"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/textColorPrimary"
+                        android:layout_weight="0.32" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginTop="3dp"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="18dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:background="@drawable/ic_weight"
+                        android:text="26 KG"
+
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="26 KG"
+                        android:paddingLeft="0dp"
+                        android:id="@+id/postWeight"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="188dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_weight="0.12" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/calendar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="$ 26.00"
+                        android:id="@+id/proposedFee"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="15dp"
+                        android:layout_marginRight="0dp"
+                        android:textColor="@color/textColorPrimary"
+                        android:layout_weight="0.29" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/start" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Harare"
+                        android:id="@+id/postFrom"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="15dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/finish" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Mutare"
+                        android:id="@+id/postTo"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="15dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/textColorPrimary" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/dolla2"
+                        android:padding="2dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="ARRIVAL DATE : 20/03/17"
+
+                        android:id="@+id/postArrDate"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
+

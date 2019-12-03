@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp"
+        android:stretchColumns="2">
+
+        <TableRow android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Description"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPostTitle"
+                android:textColor="@color/textColorDark"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:padding="5dip"
+                android:layout_weight="1"
+                android:text=""
+
+                android:layout_width="125dp"
+                android:background="@drawable/border" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:paddingLeft="8dp"
+                android:textStyle="bold"
+                android:text="Parcel Pic" />
+
+            <ImageView
+                android:id="@+id/uploadPic"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="bold"
+                android:text="Address To" />
+
+            <EditText
+                android:layout_weight="1"
+
+                android:id="@+id/etAddrTo"
+                android:gravity="start"
+                android:layout_width="350px"
+
+                android:padding="5dip"
+                android:text=""
+                android:textColor="@color/textColorDark"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/border" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="bold"
+                android:text="Deliver by" />
+
+            <EditText
+                android:id="@+id/etDeliverBy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/textColorDark"
+                android:layout_weight="0.5"
+                android:background="@drawable/border"
+                android:clickable="true"
+                android:focusable="false"
+                android:gravity="start"
+                android:hint="Date"
+                android:layout_marginRight="10dp"
+                android:padding="5dip" />
+
+            <EditText
+                android:id="@+id/etDeliverByTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+
+                android:layout_weight="0.5"
+                android:background="@drawable/border"
+                android:clickable="true"
+                android:focusable="false"
+                android:gravity="start"
+                android:hint="Time"
+                android:padding="5dip"
+                android:textColor="@color/textColorDark" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="bold"
+                android:text="Pickup point" />
+
+            <EditText
+
+                android:id="@+id/etPpoint"
+                android:gravity="start"
+                android:layout_width="350px"
+                android:layout_weight="1"
+                android:padding="5dip"
+                android:text=""
+                android:textColor="@color/textColorDark"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/border" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="bold"
+                android:text=" Recipient " />
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/etRecipient"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+
+                android:gravity="start"
+                android:layout_width="350px"
+
+                android:padding="5dip"
+                android:text=""
+                android:textColor="@color/textColorDark"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/border" />
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/etRecipient"-->
+            <!--android:focusable="false"-->
+            <!--android:clickable="true"-->
+            <!--android:textColor="@color/textColorDark"-->
+            <!--android:gravity="start"-->
+            <!--android:padding="5dip"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/border"/>-->
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            app:titleTextColor="@color/textColorPrimary"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/historyToolBar">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/cardPost"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttile"
+                android:layout_toRightOf="@+id/notifImg"
+                android:text="Post Posted"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notifDesc"
+                android:layout_below="@+id/ttile"
+                android:text="List of post you posted"
+                android:layout_toLeftOf="@+id/imageView3"
+                android:layout_alignLeft="@+id/ttile"
+                android:layout_alignStart="@+id/ttile" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_more"
+                android:id="@+id/imageView3" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/cardAgentPost"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttile"
+                android:layout_toRightOf="@+id/notifImg"
+                android:text="Agent Posts"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notifDesc"
+                android:layout_below="@+id/ttile"
+                android:text="Posts posted by you"
+                android:layout_toLeftOf="@+id/imageView3"
+                android:layout_alignLeft="@+id/ttile"
+                android:layout_alignStart="@+id/ttile" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_more"
+                android:id="@+id/imageView3" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/cardMoney"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttile"
+                android:layout_toRightOf="@+id/notifImg"
+                android:text="Transaction History"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notifDesc"
+                android:layout_below="@+id/ttile"
+                android:text="Money transfers to and from you"
+                android:layout_toLeftOf="@+id/imageView3"
+                android:layout_alignLeft="@+id/ttile"
+                android:layout_alignStart="@+id/ttile" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_more"
+                android:id="@+id/imageView3" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <!---->
+    <!---->
+    <!--<android.support.v7.widget.CardView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:id="@+id/cardAgents"-->
+    <!--android:layout_marginBottom="5dp">-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:paddingTop="15dp"-->
+    <!--android:paddingBottom="15dp">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/notifTitle"-->
+    <!--android:layout_toRightOf="@+id/notifImg"-->
+    <!--android:text="Trusted Agents"-->
+    <!--android:layout_marginLeft="15dp"-->
+    <!--android:textStyle="bold"-->
+    <!--android:textSize="20sp"/>-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/notifDesc"-->
+    <!--android:layout_below="@+id/notifTitle"-->
+    <!--android:text="Agents you rated"-->
+    <!--android:layout_toLeftOf="@+id/imageView3"-->
+    <!--android:layout_alignLeft="@+id/notifTitle"-->
+    <!--android:layout_alignStart="@+id/notifTitle" />-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:src="@mipmap/ic_more"-->
+    <!--android:id="@+id/imageView3" />-->
+
+    <!--</RelativeLayout>-->
+    <!--</android.support.v7.widget.CardView>-->
+    <!---->
+    <!---->
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/cardWallet"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttile"
+                android:text="Wallet Services"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notifDesc"
+                android:layout_below="@+id/ttile"
+                android:text="Available for Agents Only"
+                android:textAlignment="center"
+                android:layout_alignLeft="@+id/ttile"
+                android:layout_alignStart="@+id/ttile"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardServices"
+
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttile"
+                android:layout_toRightOf="@+id/notifImg"
+                android:text="Services"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notifDesc"
+                android:layout_below="@+id/ttile"
+                android:text="Coming Soon"
+                android:textAlignment="center"
+                android:layout_alignLeft="@+id/ttile"
+                android:layout_alignStart="@+id/ttile" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
