@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.common.collect.Lists;
 import com.pamsillah.wakho.Models.PostsByAgent;
+import com.pamsillah.wakho.app_settings.ConnectionConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -77,7 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<View_Holder> {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.placeholder);
         Glide.with(context).applyDefaultRequestOptions(requestOptions)
-                .load(com.pamsillah.wakho.app_settings.ConnectionConfig.BASE_URL + "/" +
+                .load(ConnectionConfig.BASE_URL + "/" +
                         item.getAgent().CompanyLogo.replace("~", ""))
                 .into(holder.imageView);
 

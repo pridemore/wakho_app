@@ -252,6 +252,6 @@
             android:textColor="@color/textColorPrimary"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@color/colorPrimary" />
+            android:background="@drawable/my_button_bg" />
     </LinearLayout>
 </ScrollView>

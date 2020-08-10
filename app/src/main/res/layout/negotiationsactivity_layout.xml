@@ -22,13 +22,23 @@
             app:title="Negotiations"
             app:titleTextColor="@color/textColorPrimary"
 
-
             />
 
     </android.support.design.widget.AppBarLayout>
+    <TextView
+        android:id="@+id/txtEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No negotiations available"
+        android:textAlignment="center"
+        android:paddingTop="400dp"
+        android:visibility="visible">
+    </TextView>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/negRecycler"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/negRecycler">
+
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

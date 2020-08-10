@@ -1,11 +1,16 @@
 package com.pamsillah.wakho.Parsers;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pamsillah.wakho.Models.Post;
+import com.pamsillah.wakho.Models.Subscriber;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,29 +23,20 @@ public class PostsParser {
         try {
 
             for (int i = 0; i < array.length(); i++) {
+
                 JSONObject obj = array.getJSONObject(i);
-                Post sub = new Post();
-                sub.setPostId(Integer.parseInt(obj.getString("PostId")));
-                sub.setAddressTo(obj.getString("AddressTo"));
-                sub.setDatePosted(obj.getString("DatePosted"));
-                sub.setDeliveryDate(obj.getString("DeliveryDate"));
-                sub.setDescription(obj.getString("Description").replace(" ", "").trim());
-                sub.setFragility(obj.getString("Fragility"));
-                sub.setLocationFromId(obj.getString("LocationFromId"));
-                sub.setLocationToId(obj.getString("LocationToId"));
-                sub.setParcelPic(obj.getString("ParcelPic"));
-                sub.setStatus(obj.getString("Status"));
-                sub.setPickUpPoint(obj.getString("PickUpPoint"));
-                sub.setAgentID(obj.getString("AgentID"));
-                sub.setProposedFee(obj.getString("ProposedFee"));
-                sub.setSubscriberId(obj.getString("SubscriberId"));
-                sub.setTimePosted(obj.getString("TimePosted"));
-                sub.setTitle(obj.getString("Title"));
-                sub.setWeight(obj.getString("Weight"));
-                Posts.add(sub);
+                String json = obj.toString();
+                Post post = new ObjectMapper().readValue(json, Post.class);
+                Posts.add(post);
             }
         } catch (JSONException e)
         {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -106,8 +107,8 @@ public class PostByAgent extends AppCompatActivity {
                 dialog.setTitle("DELETE JOURNEY");
 
                 TextView dialogtxt = (TextView) dialog.findViewById(R.id.textView);
+                dialogtxt.setTextColor(Color.BLACK);
                 dialogtxt.setText("You are about to delete your post , press OK to proceed or back to cancel.");
-
 
                 //adding button click event
                 Button dismissButton = (Button) dialog.findViewById(R.id.button);

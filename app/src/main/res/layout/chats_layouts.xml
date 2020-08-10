@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/txtEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No chat available"
+        android:textAlignment="center"
+        android:paddingTop="400dp"
+        android:visibility="visible">
+
+
+    </TextView>
+
     <android.support.v7.widget.RecyclerView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -20,4 +32,6 @@
         android:layout_gravity="bottom|right"
         android:src="@mipmap/ic_chats" />
 
+
 </android.support.design.widget.CoordinatorLayout>
+

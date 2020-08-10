@@ -28,6 +28,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.firebase.FirebaseApp;
 import com.pamsillah.wakho.Models.Agent;
 import com.pamsillah.wakho.Models.FirebaseNotificationServices;
+import com.pamsillah.wakho.Models.Notification;
 import com.pamsillah.wakho.Models.Post;
 import com.pamsillah.wakho.Models.Subscriber;
 import com.pamsillah.wakho.Parser.SubscribersParser;
@@ -40,6 +41,7 @@ import org.json.JSONArray;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//START CHAT ALL NOTIFICATIONS SERVICES
+       //START CHAT ALL NOTIFICATIONS SERVICES
         FirebaseApp.initializeApp(this);
         startService(new Intent(this.getApplicationContext(), FirebaseNotificationServices.class));
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -143,11 +145,11 @@ public class MainActivity extends AppCompatActivity {
                 MyApplication.getinstance().getSession().setAgent(null);
                 MyApplication.getinstance().getSession().setNeg(null);
                 MyApplication.getinstance().getSession().setWallet(null);
+                MyApplication.getinstance().setLstNots(Collections.<Notification>emptyList());
                 //STOP ALL NOTIFICATIONS SERVICES
                 stopService(new Intent(this, FirebaseNotificationServices.class));
 
                 MyApplication.getinstance().getSession().setVerification(null);
-
                 startActivity(new Intent(this, LoginActivity.class));
                 return true;
             case R.id.settings:
@@ -193,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,
-                DTransUrls.Subscribers + "" + id, null, new Response.Listener<JSONArray>() {
+                DTransUrls.Subscribers + "/" + id, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 

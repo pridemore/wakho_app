@@ -4,6 +4,23 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rec"
+        android:layout_height="wrap_content">
+
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/txtEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No hire requests"
+        android:textAlignment="center"
+        android:paddingTop="400dp"
+        android:visibility="visible">
+
+    </TextView>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -19,6 +36,9 @@
             app:subtitleTextColor="@color/colorTextPrimary">
 
         </android.support.v7.widget.Toolbar>
+
     </android.support.design.widget.AppBarLayout>
+
+
 
 </android.support.design.widget.CoordinatorLayout>

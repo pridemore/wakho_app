@@ -67,6 +67,15 @@ public class Notification {
     String description;
     String type;
     long timestamp, status;
+    String snapshotKey;
+
+    public String getSnapshotKey() {
+        return snapshotKey;
+    }
+
+    public void setSnapshotKey(String snapshotKey) {
+        this.snapshotKey = snapshotKey;
+    }
 
     public String getConverid() {
         return converid;

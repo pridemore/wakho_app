@@ -17,5 +17,8 @@
     <string name="item_preview_country">Zimbabwe</string>
     <string name="item_preview_dialCode">+263</string>
     <string name="title_activity_tab">TabActivity</string>
+    <string name="channel_name">Wacko Alert</string>
+    <string name="channel_description">Default notification for all alerts</string>
+    <string name="channel_id">notifications</string>
 
 </resources>

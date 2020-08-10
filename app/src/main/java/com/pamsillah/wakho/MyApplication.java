@@ -50,7 +50,7 @@ public class MyApplication extends Application {
     List<Post> pending = new ArrayList<>();
 
 
-    public List<com.pamsillah.wakho.Models.Notification> lstNots = new ArrayList<>();
+    public static List<com.pamsillah.wakho.Models.Notification> lstNots = new ArrayList<>();
 
     public List<com.pamsillah.wakho.Models.Notification> getLstNots() {
         return lstNots;

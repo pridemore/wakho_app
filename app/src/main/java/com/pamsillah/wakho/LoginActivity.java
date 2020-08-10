@@ -27,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.FirebaseApp;
 import org.json.JSONObject;
 import com.pamsillah.wakho.Models.Agent;
+import com.pamsillah.wakho.Models.FirebaseNotificationServices;
 import com.pamsillah.wakho.Models.ReadContacts;
 import com.pamsillah.wakho.Models.Subscriber;
 import com.pamsillah.wakho.Models.Wallet;
@@ -64,6 +65,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FirebaseApp.initializeApp(this);
+        stopService(new Intent(this, FirebaseNotificationServices.class));
         super.onCreate(savedInstanceState);
         if (MyApplication.getinstance().getSession().getSubscriber() != null) {
             Intent mainAct = new Intent(LoginActivity.this, MainActivity.class);
@@ -212,6 +214,7 @@ public class LoginActivity extends Activity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("ERROR LOGIN", "onErrorResponse: "+error);
                 Toast.makeText(LoginActivity.this,"Log in failed for user",Toast.LENGTH_SHORT).show();
                 progressDialog.cancel();
 

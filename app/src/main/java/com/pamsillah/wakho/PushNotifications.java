@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.pamsillah.wakho.Adapters.PushNotificationsAdapter;
@@ -27,6 +28,7 @@ public class PushNotifications extends AppCompatActivity {
     Toolbar toolbar;
     ProgressDialog progressDialog;
     RecyclerView recyclerView;
+    TextView emptyState;
     RecyclerView.Adapter adapter;
     List<Notification> notifsList = new ArrayList<>();
 
@@ -49,6 +51,7 @@ public class PushNotifications extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.rec);
+        emptyState=(TextView)findViewById(R.id.txtEmptyState);
         notifsList = MyApplication.getinstance().getLstNots();
         adapter = new PushNotificationsAdapter(notifsList, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(PushNotifications.this);
@@ -57,6 +60,15 @@ public class PushNotifications extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         //loadNotifications();
+        showEmptyState(notifsList.isEmpty());
     }
-
+    private void showEmptyState(boolean b) {
+        if (b) {
+            emptyState.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            emptyState.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
 }

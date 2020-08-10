@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -33,6 +34,8 @@ import java.util.List;
 public class NegotiationsActivity extends AppCompatActivity {
     Toolbar toolbar;
     NegListAdapter adapter;
+    TextView emptyState;
+    RecyclerView recyclerView;
     ArrayList<NegModel> listModel = new ArrayList<>();
     RecyclerView negRecycler;
     Firebase mRef;
@@ -47,6 +50,8 @@ public class NegotiationsActivity extends AppCompatActivity {
 
         negRecycler = (RecyclerView) findViewById(R.id.negRecycler);
         toolbar = (Toolbar) findViewById(R.id.barng);
+        emptyState=(TextView)findViewById(R.id.txtEmptyState);
+        recyclerView=(RecyclerView)findViewById(R.id.negRecycler);
         Notifications notification = MyApplication.getinstance().getNotifications();
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -157,7 +162,7 @@ public class NegotiationsActivity extends AppCompatActivity {
                 adapter = new NegListAdapter(negList, getApplicationContext());
                 negRecycler.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-
+                showEmptyState(negList.isEmpty());
             }
 
             @Override
@@ -182,5 +187,13 @@ public class NegotiationsActivity extends AppCompatActivity {
         });
 
     }
-
+    private void showEmptyState(boolean b) {
+        if (b) {
+            emptyState.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            emptyState.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
 }

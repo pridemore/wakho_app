@@ -1,173 +1,246 @@
 package com.pamsillah.wakho.Models;
 
-/**
- * Created by .Net Developer on 24/2/2017.
- */
+import java.util.HashMap;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.pamsillah.wakho.Models.ImageUp;
+import com.pamsillah.wakho.Models.Subscriber;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "PostId",
+        "DatePosted",
+        "TimePosted",
+        "SubscriberId",
+        "Title",
+        "Description",
+        "Weight",
+        "Fragility",
+        "LocationToId",
+        "LocationFromId",
+        "PickUpPoint",
+        "ProposedFee",
+        "DeliveryDate",
+        "Status",
+        "ParcelPic",
+        "AddressTo",
+        "AgentID",
+        "upload",
+        "Subscriber"
+})
 public class Post {
+
+    @JsonProperty("PostId")
+    private Integer postId;
+    @JsonProperty("DatePosted")
+    private String datePosted;
+    @JsonProperty("TimePosted")
+    private String timePosted;
+    @JsonProperty("SubscriberId")
+    private String subscriberId;
+    @JsonProperty("Title")
+    private String title;
+    @JsonProperty("Description")
+    private String description;
+    @JsonProperty("Weight")
+    private String weight;
+    @JsonProperty("Fragility")
+    private String fragility;
+    @JsonProperty("LocationToId")
+    private String locationToId;
+    @JsonProperty("LocationFromId")
+    private String locationFromId;
+    @JsonProperty("PickUpPoint")
+    private String pickUpPoint;
+    @JsonProperty("ProposedFee")
+    private String proposedFee;
+    @JsonProperty("DeliveryDate")
+    private String deliveryDate;
+    @JsonProperty("Status")
+    private String status;
+    @JsonProperty("ParcelPic")
+    private String parcelPic;
+    @JsonProperty("AddressTo")
+    private String addressTo;
+    @JsonProperty("AgentID")
+    private String agentID;
+    @JsonProperty("upload")
+    private ImageUp upload;
+    @JsonProperty("Subscriber")
+    private Subscriber subscriber;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+
+    public Integer getPostId() {
+        return postId;
+    }
+
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
+    }
+
+    public String getDatePosted() {
+        return datePosted;
+    }
+
+    public void setDatePosted(String datePosted) {
+        this.datePosted = datePosted;
+    }
+
+    public Object getTimePosted() {
+        return timePosted;
+    }
+
+    public void setTimePosted(String timePosted) {
+        this.timePosted = timePosted;
+    }
+
+
+    public String getSubscriberId() {
+        return subscriberId;
+    }
+
+    public void setSubscriberId(String subscriberId) {
+        this.subscriberId = subscriberId;
+    }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getFragility() {
+        return fragility;
+    }
+
+    public void setFragility(String fragility) {
+        this.fragility = fragility;
+    }
+
+    public String getLocationToId() {
+        return locationToId;
+    }
+
+    public void setLocationToId(String locationToId) {
+        this.locationToId = locationToId;
+    }
+
+    public String getLocationFromId() {
+        return locationFromId;
+    }
+
+    public void setLocationFromId(String locationFromId) {
+        this.locationFromId = locationFromId;
+    }
+
+    public String getPickUpPoint() {
+        return pickUpPoint;
+    }
+
+    public void setPickUpPoint(String pickUpPoint) {
+        this.pickUpPoint = pickUpPoint;
+    }
+
+    public String getProposedFee() {
+        return proposedFee;
+    }
+
+    public void setProposedFee(String proposedFee) {
+        this.proposedFee = proposedFee;
+    }
+
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getParcelPic() {
+        return parcelPic;
+    }
+
+
+    public void setParcelPic(String parcelPic) {
+        this.parcelPic = parcelPic;
+    }
+
+    public String getAddressTo() {
+        return addressTo;
+    }
+
+    public void setAddressTo(String addressTo) {
+        this.addressTo = addressTo;
+    }
+
+    public String getAgentID() {
+        return agentID;
+    }
+
+    public void setAgentID(String agentID) {
+        this.agentID = agentID;
+    }
 
     public ImageUp getUpload() {
         return upload;
     }
 
+
     public void setUpload(ImageUp upload) {
         this.upload = upload;
     }
 
-    public ImageUp upload;
 
-    public int getPostId() {
-        return PostId;
+    public Subscriber getSubscriber() {
+        return subscriber;
     }
 
-    public void setPostId(int postId) {
-        PostId = postId;
+
+    public void setSubscriber(Subscriber subscriber) {
+        this.subscriber = subscriber;
     }
 
-    public String getDatePosted() {
-        return DatePosted;
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
-    public void setDatePosted(String datePosted) {
-        DatePosted = datePosted;
-    }
-
-    public String getTimePosted() {
-        return TimePosted;
-    }
-
-    public void setTimePosted(String timePosted) {
-        TimePosted = timePosted;
-    }
-
-    public String getSubscriberId() {
-        return SubscriberId;
-    }
-
-    public void setSubscriberId(String subscriberId) {
-        SubscriberId = subscriberId;
-    }
-
-    public String getTitle() {
-        return Title;
-    }
-
-    public void setTitle(String title) {
-        Title = title;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
-    public String getWeight() {
-        return Weight;
-    }
-
-    public void setWeight(String weight) {
-        Weight = weight;
-    }
-
-    public String getFragility() {
-        return Fragility;
-    }
-
-    public void setFragility(String fragility) {
-        Fragility = fragility;
-    }
-
-    public String getLocationToId() {
-        return LocationToId;
-    }
-
-    public void setLocationToId(String locationToId) {
-        LocationToId = locationToId;
-    }
-
-    public String getLocationFromId() {
-        return LocationFromId;
-    }
-
-    public void setLocationFromId(String locationFromId) {
-        LocationFromId = locationFromId;
-    }
-
-    public String getPickUpPoint() {
-        return PickUpPoint;
-    }
-
-    public void setPickUpPoint(String pickUpPoint) {
-        PickUpPoint = pickUpPoint;
-    }
-
-    public String getProposedFee() {
-        return ProposedFee;
-    }
-
-    public void setProposedFee(String proposedFee) {
-        ProposedFee = proposedFee;
-    }
-
-    public String getDeliveryDate() {
-        return DeliveryDate;
-    }
-
-    public void setDeliveryDate(String deliveryDate) {
-        DeliveryDate = deliveryDate;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
-    }
-
-    public String getParcelPic() {
-        return ParcelPic;
-    }
-
-    public void setParcelPic(String parcelPic) {
-        ParcelPic = parcelPic;
-    }
-
-    public String getAgentID() {
-        return AgentID;
-    }
-
-    public void setAgentID(String agentID) {
-        this.AgentID = agentID;
-    }
-
-    private String AgentID;
-    private int PostId;
-    private String DatePosted;
-    private String TimePosted;
-    private String SubscriberId;
-    private String Title;
-    private String Description;
-    private String Weight;
-    private String Fragility;
-    private String LocationToId;
-    private String LocationFromId;
-    private String PickUpPoint;
-    private String ProposedFee;
-    private String DeliveryDate;
-    private String Status;
-    private String ParcelPic;
-    private String AddressTo;
-
-    public String getAddressTo() {
-        return AddressTo;
-    }
-
-    public void setAddressTo(String addressTo) {
-        AddressTo = addressTo;
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 
 

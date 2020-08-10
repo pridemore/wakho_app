@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -130,8 +131,8 @@ public class CartActivity extends AppCompatActivity {
                 dialog.setTitle("Sent");
 
                 TextView dialogtxt = (TextView) dialog.findViewById(R.id.textView);
+                dialogtxt.setTextColor(Color.BLACK);
                 dialogtxt.setText("The user has been notified about your interest in their post. We will let you know once they give a response");
-
                 ImageView image = (ImageView) dialog.findViewById(R.id.image);
                 image.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_green_check));
 
@@ -141,7 +142,9 @@ public class CartActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(CartActivity.this, "", Toast.LENGTH_SHORT).show();
-                        NotificationsSender.sendNotification(posts.getSubscriberId(), posts.getPostId() + "_" + MyApplication.getinstance().getSession().getAgent().getAgentId() + "_" + posts.getSubscriberId() + "_" + MyApplication.getinstance().getSession().getSubscriber().getPhone(), "Congrats Agent " + MyApplication.getinstance().getSession().getAgent().getCompanyName() + " accepted Your offer of $" + posts.getProposedFee() + " . Please proceed to payment or cancel the deal.",/*Message to be displayed on the notification*/
+                        NotificationsSender.sendNotification(posts.getSubscriberId(),
+                                posts.getPostId() + "_" + MyApplication.getinstance().getSession().getAgent().getAgentId() + "_" + posts.getSubscriberId() + "_" + MyApplication.getinstance().getSession().getSubscriber().getPhone(),
+                                "Congrats Agent " + MyApplication.getinstance().getSession().getAgent().getCompanyName() + " accepted Your offer of $" + posts.getProposedFee() + " . Please proceed to payment or cancel the deal.",/*Message to be displayed on the notification*/
                                 " Negotiations", /*Message title*/
                                 "accept" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
 

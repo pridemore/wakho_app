@@ -82,11 +82,9 @@ public class VerificationScreen extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-                if (s.length() != 0) {
 
-                    if (su.getVerificationCode().trim().equals(verify.getText().toString())) {
-                        progressDialog.show();
-                                progressDialog.cancel();
+                if (s.length() != 0) {
+                    if (su.getVerificationCode().trim().equals(verify.getText().toString().trim())) {
                                 startActivity(new Intent(VerificationScreen.this, EditProfile.class));
                     }
                 }
@@ -94,14 +92,11 @@ public class VerificationScreen extends AppCompatActivity {
             }
         });
 
-
         btnverify.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                progressDialog.show();
-                if (su.getVerificationCode().trim().equals(verify.getText().toString())) {
-                    progressDialog.dismiss();
+                if (su.getVerificationCode().trim().equals(verify.getText().toString().trim())) {
                             startActivity(new Intent(VerificationScreen.this, EditProfile.class));
 
                 }

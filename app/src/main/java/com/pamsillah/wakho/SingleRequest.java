@@ -3,6 +3,7 @@ package com.pamsillah.wakho;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -160,6 +161,7 @@ public class SingleRequest extends AppCompatActivity {
                 dialog.setTitle("Sent");
 
                 TextView dialogtxt = dialog.findViewById(R.id.textView);
+                dialogtxt.setTextColor(Color.BLACK);
                 dialogtxt.setText("The user has been notified about your interest in their post. We will let you know once they give a response");
 
                 ImageView image = dialog.findViewById(R.id.image);

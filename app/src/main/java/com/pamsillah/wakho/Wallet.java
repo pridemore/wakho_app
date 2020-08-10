@@ -3,6 +3,7 @@ package com.pamsillah.wakho;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -59,7 +60,8 @@ public class Wallet extends AppCompatActivity {
         agent = MyApplication.getinstance().getSession().getAgent();
         wallet = MyApplication.getinstance().getSession().getWallet();
         progressDialog = new ProgressDialog(this);
-
+if(wallet ==null)
+    wallet=new com.pamsillah.wakho.Models.Wallet();
 //Set TEXT
         wbankName.setText(agent.getBankName());
         wacc.setText(agent.getAccNumber());
@@ -78,6 +80,7 @@ public class Wallet extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (update.getText().toString().contains("Update Bank Detls")) {
+                    update.setTextColor(Color.BLACK);
                     update.setText("  Save Changes  ");
 
                     wacc.setEnabled(true);
@@ -88,6 +91,7 @@ public class Wallet extends AppCompatActivity {
                     dialog.setContentView(R.layout.layout_accept_dialog);
                     dialog.setTitle("Confirmation");
                     TextView dialogtxt = (TextView) dialog.findViewById(R.id.textView);
+                    dialogtxt.setTextColor(Color.BLACK);
                     dialogtxt.setText("Changes Will be saved.");
                     ImageView image = (ImageView) dialog.findViewById(R.id.image);
                     image.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_green_check));
@@ -141,6 +145,7 @@ public class Wallet extends AppCompatActivity {
                 dialog.setContentView(R.layout.layout_accept_dialog);
                 dialog.setTitle("Confirmation");
                 TextView dialogtxt = (TextView) dialog.findViewById(R.id.textView);
+                dialogtxt.setTextColor(Color.BLACK);
                 dialogtxt.setText("Your Request was sent to the Administrator .");
                 ImageView image = (ImageView) dialog.findViewById(R.id.image);
                 image.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_green_check));

@@ -149,10 +149,11 @@ public class RegisterActivity extends Activity {
                 if (response.contains("Suceeded")) {
                    // subS();
                     progressDialog.cancel();
-                    String verificationcode = response.split(",")[1];
-                    verificationcode = verificationcode.substring(0, verificationcode.length() - 1);
-                    MyApplication.getinstance().getSession().setVerification(verificationcode);
+                    String verificationcode = response.split(",")[2].trim();
+                    verificationcode= verificationcode.substring(0,verificationcode.length()-1);
+                    Integer subscriberId = Integer.parseInt(response.split(",")[1]);
                     subscribers.setVerificationCode(verificationcode);
+                    subscribers.setSubscriberId(subscriberId);
                     MyApplication.getinstance().getSession().setSubscriber(subscribers);
                     Intent intent = new Intent(RegisterActivity.this, VerificationScreen.class);
                     startActivity(intent);

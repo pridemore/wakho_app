@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,6 +30,7 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by .Net Developer on 9/9/2017.
@@ -36,13 +38,16 @@ import java.util.List;
 
 public class HistoryMoney extends Activity {
     Toolbar toolbar;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView5;
+    private TextView emptyState5;
     List<TransactionFee> data = new ArrayList<>();
+    TransactionAdapter adapter = new TransactionAdapter(data);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_money);
+        emptyState5 = (TextView) findViewById(R.id.txtEmptyState);
         toolbar = (Toolbar) findViewById(R.id.hismoToolbar);
         toolbar.setTitle("Money Transferes made");
         toolbar.setNavigationIcon(R.mipmap.ic_back);
@@ -52,49 +57,39 @@ public class HistoryMoney extends Activity {
                 onBackPressed();
             }
         });
-        recyclerView = (RecyclerView) findViewById(R.id.his_money_recy);
+        recyclerView5 = (RecyclerView) findViewById(R.id.his_money_recy);
         CardView cv = (CardView) findViewById(R.id.his_money_card);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView5.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
 
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView5.setItemAnimator(new DefaultItemAnimator());
 
-        recyclerView.setAdapter(new TransactionAdapter(data));
-        fill_with_data();
+        recyclerView5.setAdapter(adapter);
+        Subscriber subscriber = MyApplication.getinstance().getSession().getSubscriber();
+        Agent agent = MyApplication.getinstance().getSession().getAgent();
+        if (subscriber != null) {
+            getTransactions(DTransUrls.usertransactions + subscriber.getSubscriberId());
+        }
+        if (agent != null) {
+            getTransactions(DTransUrls.agentTransactions + agent.getAgentId());
+        }
+        recyclerView5.setAdapter(adapter);
     }
 
-    public void fill_with_data() {
+    public void getTransactions(String url) {
 
-
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, DTransUrls.transactions, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
                 List<TransactionFee> datta = new ArrayList<>();
                 datta = TransactionsParser.parseFeed(response);
-                Agent aget = MyApplication.getinstance().getSession().getAgent();
-                Subscriber sub = MyApplication.getinstance().getSession().getSubscriber();
+                showEmptyState(datta.isEmpty());
 
+                data.addAll(datta);
 
-                if (datta.size() > 0) {
-
-                    for (TransactionFee fee : datta
-                            ) {
-                        if (fee.getReff_Number() != null) {
-                            String arr[] = fee.getReff_Number().replace("[", "").replace("]", "").replace("_", ":").split(":");
-                            if (aget != null && arr[1].equals(String.valueOf(aget.getAgentId()))) {
-
-                                data.add(fee);
-                            } else if (arr[2].equals(String.valueOf(sub.getSubscriberId()))) {
-                                data.add(fee);
-
-                            }
-                        }
-
-                    }
-                    recyclerView.setAdapter(new TransactionAdapter(Lists.reverse(data)));
-                }
-
+                recyclerView5.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
 
             }
         }, new Response.ErrorListener() {
@@ -114,5 +109,15 @@ public class HistoryMoney extends Activity {
 
         MyApplication.getinstance().addToRequestQueue(jsonArrayRequest);
 
+    }
+
+    private void showEmptyState(boolean b) {
+        if (b) {
+            emptyState5.setVisibility(View.VISIBLE);
+            recyclerView5.setVisibility(View.GONE);
+        } else {
+            emptyState5.setVisibility(View.GONE);
+            recyclerView5.setVisibility(View.VISIBLE);
+        }
     }
 }

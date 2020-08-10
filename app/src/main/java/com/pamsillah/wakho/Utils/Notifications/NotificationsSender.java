@@ -15,7 +15,9 @@ public final class NotificationsSender {
 
         String pushKey = databaseReference.push().getKey();
 
-        Notification notification = new Notification();
+        Notification notification = new Notification()
+
+                ;
         notification.setDescription(description);
         notification.setMessage(message);
         notification.setUser_id(user_id);

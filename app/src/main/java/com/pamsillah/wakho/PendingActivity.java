@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -36,24 +37,27 @@ import java.util.List;
 
 public class PendingActivity extends Activity {
     Toolbar toolbar;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView4;
+    private TextView emptyState4;
     List<Post> data = new ArrayList<>();
     ProgressDialog progressDialog = null;
+    PendingAdapter adapter = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pending_activity);
-
-        recyclerView = (RecyclerView) findViewById(R.id.pendingRecycler);
+        adapter=new PendingAdapter(data, getApplicationContext());
+        emptyState4 = (TextView)findViewById(R.id.txtEmptyState);
+        recyclerView4 = (RecyclerView) findViewById(R.id.pendingRecycler);
         CardView cv = (CardView) findViewById(R.id.cardview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView4.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait ...");
         progressDialog.setIcon(R.drawable.logo);
         progressDialog.setTitle("Updating ");
-        progressDialog.show();
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //progressDialog.show();
+        recyclerView4.setItemAnimator(new DefaultItemAnimator());
 
         fill_with_data();
 
@@ -79,7 +83,8 @@ public class PendingActivity extends Activity {
             public void onResponse(JSONArray response) {
 
                 datta = PostsParser.parseFeed(response);
-                Agent aget = MyApplication.getinstance().getSession().getAgent();
+                showEmptyState(datta.isEmpty());
+                Agent currentAgent = MyApplication.getinstance().getSession().getAgent();
                 Subscriber sub = MyApplication.getinstance().getSession().getSubscriber();
 
                 // callback.onSuccess(publications);
@@ -89,6 +94,7 @@ public class PendingActivity extends Activity {
 
 
                         if ((p.getSubscriberId().equals(String.valueOf(sub.getSubscriberId())) && (p.getStatus().contains("Paid.Waiting")))) {
+                             Agent agent=MyApplication.getinstance().getAgent();
                             for (Agent a : MyApplication.getinstance().getLstAgent()) {
                                 if (String.valueOf(a.getAgentId()).equals(p.getAgentID())) {
 
@@ -100,11 +106,11 @@ public class PendingActivity extends Activity {
 
 
                         }
-                        else if ((aget != null) && (String.valueOf(aget.getAgentId()).equals(p.getAgentID())) && (p.getStatus().contains("Paid.Waiting") )) {
+                        else if ((currentAgent != null) && (String.valueOf(currentAgent.getAgentId()).equals(p.getAgentID())) && (p.getStatus().contains("Paid.Waiting") )) {
                             for (Subscriber a : MyApplication.getinstance().getSubscribers()
                                     ) {
                                 if (String.valueOf(a.getSubscriberId()).equals(p.getSubscriberId())) {
-                                    p.setStatus(p.getStatus() + "#" + aget.getCompanyName() + "#" + aget.getCompanyLogo() + "#" + sub.getName() + " " + sub.getSurname());
+                                    p.setStatus(p.getStatus() + "#" + currentAgent.getCompanyName() + "#" + currentAgent.getCompanyLogo() + "#" + sub.getName() + " " + sub.getSurname());
 
                                     data.add(p);
                                     break;
@@ -116,21 +122,20 @@ public class PendingActivity extends Activity {
                             String number =sub.getPhone().replace("+263", "0").replace(" ", "");
                             if (p.getDescription().split(":")[1].replace("263","0").contains(number)) {
 
+                            if(MyApplication.getinstance().getLstAgent()!=null)
                                 for (Agent a : MyApplication.getinstance().getLstAgent()) {
                                     if (String.valueOf(a.getAgentId()).equals(p.getAgentID())) {
-
                                         p.setStatus(p.getStatus() + "#" + a.getCompanyName() + "#" + a.getCompanyLogo());
-
                                         break;
                                     }
-                                }
 
+                            }
+
+                                if(MyApplication.getinstance().getSubscribers()!=null)
                                 for (Subscriber a : MyApplication.getinstance().getSubscribers()
                                         ) {
                                     if (String.valueOf(a.getSubscriberId()).equals(p.getSubscriberId())) {
                                         p.setStatus(p.getStatus() + "#" + sub.getName() + " " + sub.getSurname());
-
-
                                         break;
                                     }
                                 }
@@ -143,9 +148,9 @@ public class PendingActivity extends Activity {
 
                     }
                     progressDialog.cancel();
-                    PendingAdapter adapter = new PendingAdapter(data, getApplicationContext());
+                     adapter = new PendingAdapter(data, getApplicationContext());
                     MyApplication.getinstance().listPost.addAll(data);
-                    recyclerView.setAdapter(adapter);
+                    recyclerView4.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
 
                 } else {
@@ -173,4 +178,14 @@ public class PendingActivity extends Activity {
         MyApplication.getinstance().addToRequestQueue(jsonArrayRequest);
 
     }
+    private void showEmptyState(boolean b) {
+        if (b) {
+            emptyState4.setVisibility(View.VISIBLE);
+            recyclerView4.setVisibility(View.GONE);
+        } else {
+            emptyState4.setVisibility(View.GONE);
+            recyclerView4.setVisibility(View.VISIBLE);
+        }
+    }
+
 }

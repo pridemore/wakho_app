@@ -241,7 +241,7 @@
                 android:layout_marginTop="23dp"
                 android:text="Reject"
                 android:textColor="@color/textColorPrimary"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/my_button_bg"
                 android:enabled="true"
                 android:layout_toLeftOf="@+id/textView7"
                 android:layout_toStartOf="@+id/textView7" />
@@ -255,7 +255,7 @@
                 android:layout_marginRight="35dp"
                 android:enabled="true"
                 android:textColor="@color/textColorPrimary"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/my_button_bg"
                 android:text="Accept" />
 
         </RelativeLayout>

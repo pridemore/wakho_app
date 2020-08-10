@@ -193,7 +193,7 @@
         <Button
             android:id="@+id/send"
             android:layout_width="100dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/my_button_bg"
             android:textColor="@color/textColorPrimary"
             android:layout_height="wrap_content"
 

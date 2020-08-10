@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -34,7 +35,8 @@ import java.util.List;
  */
 
 public class HistoryPosts extends Activity {
-    RecyclerView recyclerView;
+    RecyclerView recyclerView3;
+     TextView emptyState3;
     List<Post> data = new ArrayList<>();
     Toolbar toolbar;
     ProgressDialog progressDialog;
@@ -52,11 +54,14 @@ public class HistoryPosts extends Activity {
                 onBackPressed();
             }
         });
-        recyclerView = (RecyclerView) findViewById(R.id.help_post_re);
+        recyclerView3 = (RecyclerView) findViewById(R.id.help_post_re);
+        emptyState3 =  (TextView) findViewById(R.id.txtEmptyState);
         CardView cv = (CardView) findViewById(R.id.cardview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView3.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         progressDialog = new ProgressDialog(this);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView3.setItemAnimator(new DefaultItemAnimator());
+
+
 
         fill_with_data();
     }
@@ -74,6 +79,7 @@ public class HistoryPosts extends Activity {
             public void onResponse(JSONArray response) {
                 List<Post> datta = new ArrayList<>();
                 datta = PostsParser.parseFeed(response);
+                showEmptyState(datta.isEmpty());
                 Agent aget = MyApplication.getinstance().getSession().getAgent();
                 Subscriber sub = MyApplication.getinstance().getSession().getSubscriber();
                 data.clear();
@@ -88,10 +94,10 @@ public class HistoryPosts extends Activity {
                         }
                     }
                     data.addAll(MyApplication.getinstance().getPending());
-                    recyclerView.setAdapter(new PostsRecyclerViewAdapter(data, getApplicationContext()));
+                    recyclerView3.setAdapter(new PostsRecyclerViewAdapter(data, getApplicationContext()));
                 } else {
                     data.addAll(MyApplication.getinstance().getPending());
-                    recyclerView.setAdapter(new PostsRecyclerViewAdapter(data, getApplicationContext()));
+                    recyclerView3.setAdapter(new PostsRecyclerViewAdapter(data, getApplicationContext()));
                 }
                 progressDialog.cancel();
 
@@ -115,6 +121,14 @@ public class HistoryPosts extends Activity {
         MyApplication.getinstance().addToRequestQueue(jsonArrayRequest);
 
     }
-
+    private void showEmptyState(boolean b) {
+        if(b){
+            emptyState3.setVisibility(View.VISIBLE);
+            recyclerView3.setVisibility(View.GONE);
+        }else{
+            emptyState3.setVisibility(View.GONE);
+            recyclerView3.setVisibility(View.VISIBLE);
+        }
+    }
 
 }

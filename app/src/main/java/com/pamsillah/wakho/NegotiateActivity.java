@@ -162,7 +162,7 @@ public class NegotiateActivity extends AppCompatActivity {
 
 
                 mRef.push().setValue(negModel);
-                sendNotification(recip, child, negModel.getSender()+ " Wants $"+mTypeNeg.getText(),"Fee negotiation", "negotiation");
+                sendNotification(recip, child, negModel.getSender()+ " Wants $"+mTypeNeg.getText()+". Go to Negotiations to Accept or Quote.","Fee negotiation", "negotiation");
 
                 mTypeNeg.setText("");
             }
@@ -185,6 +185,7 @@ public class NegotiateActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
+
 
             }
         });

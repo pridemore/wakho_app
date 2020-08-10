@@ -39,11 +39,10 @@
             android:layout_centerHorizontal="true"
             android:onClick="loadImagefromGallery"
             android:layout_marginTop="-60dp"
-
             android:elevation="5dp"
-
             android:scaleType="centerCrop"
-            android:src="@drawable/placeholder" />
+            android:src="@drawable/placeholder"
+            />
 
         <RelativeLayout
             android:id="@+id/profile_layout"
@@ -189,16 +188,16 @@
                     android:layout_margin="5dp"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="3dp"
+                    android:hint="Enter New Password"
                     android:background="@color/colorPrimaryDark"
                     android:clickable="true"
+                    android:elevation="4dp"
                     android:textColor="#ffff"
-
                     android:textColorHint="@color/BackgroundDoveGrey"
-                    android:hint="Enter New Password"
-                    android:inputType="textPassword"
                     android:padding="20dp"
                     android:textAlignment="center"
-                    android:id="@+id/password" />
+                    android:id="@+id/password"
+                    android:inputType="textPassword"/>
 
 
                 <EditText
@@ -244,6 +243,7 @@
                 android:text="Done"
                 android:drawableLeft="@drawable/ic_done_white_24dp"
                 android:id="@+id/done_editing" />
+
 
             <Button
                 android:layout_width="200dp"

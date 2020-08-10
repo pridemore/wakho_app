@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -36,7 +37,8 @@ import java.util.List;
  */
 
 public class HistoryAgentPosts extends Activity {
-    RecyclerView recyclerView;
+    RecyclerView recyclerView9;
+    TextView emptyState9;
     List<PostsByAgent> data = new ArrayList<>();
     Toolbar toolbar;
     ProgressDialog progressDialog;
@@ -54,15 +56,16 @@ public class HistoryAgentPosts extends Activity {
                 onBackPressed();
             }
         });
-        recyclerView = (RecyclerView) findViewById(R.id.help_post_re);
+        recyclerView9 = (RecyclerView) findViewById(R.id.help_post_re);
         CardView cv = (CardView) findViewById(R.id.cardview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView9.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        emptyState9=(TextView) findViewById(R.id.txtEmptyState);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
         progressDialog.setTitle("Loading Data");
         progressDialog.setIcon(R.drawable.logo);
         progressDialog.show();
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView9.setItemAnimator(new DefaultItemAnimator());
 
         fill_with_data();
     }
@@ -101,11 +104,13 @@ public class HistoryAgentPosts extends Activity {
                         } catch (Exception e) {
                         }
                     }
-
                 }
+                showEmptyState(!data.isEmpty());
                 if (data.size() > 0) {
 
-                    recyclerView.setAdapter(new RecyclerViewAdapter(Lists.reverse(data), getApplicationContext()));
+                    recyclerView9.setAdapter(new RecyclerViewAdapter(Lists.reverse(data), getApplicationContext()));
+                    MyApplication.getinstance().getPostsByAgent();
+                    recyclerView9.getAdapter().notifyDataSetChanged();
                 }
                 progressDialog.cancel();
 
@@ -127,5 +132,14 @@ public class HistoryAgentPosts extends Activity {
 
         MyApplication.getinstance().addToRequestQueue(jsonArrayRequest);
 
+    }
+    private void showEmptyState(boolean b) {
+        if(b){
+            emptyState9.setVisibility(View.GONE);
+            recyclerView9.setVisibility(View.VISIBLE);
+        }else{
+            emptyState9.setVisibility(View.VISIBLE);
+            recyclerView9.setVisibility(View.GONE);
+        }
     }
 }

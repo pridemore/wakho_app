@@ -2,6 +2,7 @@ package com.pamsillah.wakho;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -46,7 +47,8 @@ public class WebviewActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(WebviewActivity.this, MainActivity.class));
+                onBackPressed();
+             //   startActivity(new Intent(WebviewActivity.this, MainActivity.class));
                 Toast.makeText(WebviewActivity.this, "Redirecting to main .", Toast.LENGTH_SHORT).show();
             }
         });
@@ -58,7 +60,7 @@ public class WebviewActivity extends AppCompatActivity {
             }
         });
 
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
         webView = findViewById(R.id.paynowWebview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setHorizontalScrollBarEnabled(true);

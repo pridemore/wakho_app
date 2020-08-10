@@ -70,10 +70,10 @@
             android:layout_alignParentStart="true"
             android:layout_marginLeft="23dp"
             android:layout_marginStart="23dp"
+            android:background="@drawable/my_button_bg"
             android:padding="3dp"
-            android:background="@color/colorPrimary"
             android:textColor="@color/textColorPrimary"
-            android:text="Proceed to pay" />
+            android:text=" Pay " />
 
         <Button
             android:id="@+id/cancel"
@@ -84,10 +84,10 @@
             android:layout_alignParentRight="true"
             android:layout_marginEnd="41dp"
             android:layout_marginRight="41dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/my_button_bg"
             android:textColor="@color/textColorPrimary"
             android:padding="3dp"
-            android:text="Cancel the Deal " />
+            android:text=" Cancel " />
 
     </RelativeLayout>
 

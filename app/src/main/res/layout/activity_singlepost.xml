@@ -234,7 +234,7 @@
                 android:layout_marginTop="23dp"
                 android:layout_toLeftOf="@+id/txtdeltitle"
                 android:layout_toStartOf="@+id/txtdeltitle"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/my_button_bg"
                 android:enabled="false"
                 android:text="Quote"
                 android:textColor="@color/textColorPrimary" />
@@ -243,7 +243,7 @@
                 android:id="@+id/accept"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/my_button_bg"
                 android:textColor="@color/textColorPrimary"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/quote"

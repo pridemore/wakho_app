@@ -44,8 +44,8 @@ import java.util.List;
  * Created by psillah on 3/24/2017.
  */
 public class AgentsFragment extends Fragment implements SearchView.OnQueryTextListener {
-    private RecyclerView recyclerView;
-    private TextView emptyState;
+    private RecyclerView recyclerView2;
+    private TextView emptyState2;
     List<PostsByAgent> data = new ArrayList<>();
     FloatingActionButton fab;
     SwipeRefreshLayout srl;
@@ -56,10 +56,13 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.agents_activity, container, false);
         setHasOptionsMenu(true);
+        recyclerView2 = v.findViewById(R.id.my_recycler_view);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView2.setItemAnimator(new DefaultItemAnimator());
 
         fab = v.findViewById(R.id.fabagents);
         srl = v.findViewById(R.id.agentSwipeContainer);
-        emptyState = v.findViewById(R.id.txtEmptyState);
+        emptyState2 = v.findViewById(R.id.txtEmptyState);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +89,9 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                ((RecyclerViewAdapter) recyclerView.getAdapter()).clear();
+                if(recyclerView2!=null &&recyclerView2.getAdapter()!=null){
+                    ((RecyclerViewAdapter) recyclerView2.getAdapter()).clear();
+                }
                 fill_with_data();
                 srl.setRefreshing(false);
             }
@@ -95,11 +100,8 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
         srl.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary,
                 R.color.BackgroundDoveGrey);
 
-
-        recyclerView = v.findViewById(R.id.my_recycler_view);
         fill_with_data();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
 
         return v;
 
@@ -128,10 +130,8 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
                 List<PostsByAgent> dat1 = new ArrayList<>();
                 dat1.clear();
                 dat1 = PostsByAgentParser.parseFeed(response);
-                    showEmptyState(dat1.isEmpty());
-
-                for (PostsByAgent item : dat1
-                        ) {
+                 data= new ArrayList<>();
+                for (PostsByAgent item : dat1) {
 
                     Date da1 = new Date(), da2 = new Date();
                     String d2 = item.getDepatureDate().split("@")[0].trim();
@@ -142,22 +142,19 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-
                     try {
                         if (da2.after(da1) || d2.equals(d1)) {
                             data.add(item);
                         }
-
-
                     } catch (Exception ignored) {
                     }
-
                 }
-                if (data.size() > 0) {
-
-                    recyclerView.setAdapter(new RecyclerViewAdapter(Lists.reverse(data),
-                            getActivity()));
+                if (dat1.size() > 0) {
+                    recyclerView2.setAdapter(new RecyclerViewAdapter(dat1,getContext()));
+                    MyApplication.getinstance().getPostsByAgent();
+                    recyclerView2.getAdapter().notifyDataSetChanged();
                 }
+                showEmptyState(!data.isEmpty());
 
 
             }
@@ -181,11 +178,11 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
 
     private void showEmptyState(boolean b) {
         if(b){
-            emptyState.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE);
+            emptyState2.setVisibility(View.GONE);
+            recyclerView2.setVisibility(View.VISIBLE);
         }else{
-            emptyState.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
+            emptyState2.setVisibility(View.VISIBLE);
+            recyclerView2.setVisibility(View.GONE);
         }
     }
 
@@ -211,8 +208,8 @@ public class AgentsFragment extends Fragment implements SearchView.OnQueryTextLi
 
         RecyclerView.Adapter newAdapter;
         newAdapter = new RecyclerViewAdapter(newlist, getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(newAdapter);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView2.setAdapter(newAdapter);
         newAdapter.notifyDataSetChanged();
 
         return true;

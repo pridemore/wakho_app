@@ -3,6 +3,7 @@ package com.pamsillah.wakho;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -44,7 +45,9 @@ public class UpdateParcel extends AppCompatActivity {
         toolbar.setTitle("Post Delivery Update");
         toolbar.setSubtitle("delivery updates.");
         confirm = findViewById(R.id.confirm);
+        confirm.setTextColor(Color.BLACK);
         towner = findViewById(R.id.towner);
+        towner.setTextColor(Color.BLACK);
         stat = findViewById(R.id.stat);
         progressDialog = new ProgressDialog(this);
         progressDialog.setIcon(R.drawable.logo);
@@ -52,6 +55,7 @@ public class UpdateParcel extends AppCompatActivity {
         progressDialog.setTitle("Parcel Update");
         address = findViewById(R.id.add);
         pickup = findViewById(R.id.pickup);
+        pickup.setTextColor(Color.BLACK);
         ttile = findViewById(R.id.pTitle);
         final Agent thisAgent = MyApplication.getinstance().getSession().getAgent();
         MyApplication.getinstance().setPost(null);
@@ -62,8 +66,7 @@ public class UpdateParcel extends AppCompatActivity {
         Subscriber ss = null;
         boolean isempty = true;
 
-        for (Subscriber a : MyApplication.getinstance().getSubscribers()
-                ) {
+        for (Subscriber a : MyApplication.getinstance().getSubscribers()) {
             if (String.valueOf(a.getSubscriberId()).equals(p.getSubscriberId())) {
                 ss = a;
                 isempty = false;
@@ -155,7 +158,7 @@ public class UpdateParcel extends AppCompatActivity {
                     ParcelNotificationsManager.deliver(UpdateParcel.this, progressDialog, thisAgent,p);
 
                 } else if (confirm.getText().toString().equals("Confirm Delivery")) {
-                    ParcelNotificationsManager.conFirmDelivery(UpdateParcel.this, progressDialog,thisAgent,p,subscriber);
+                    ParcelNotificationsManager.conFirmDelivery(UpdateParcel.this, progressDialog,thisAgent,p,p.getSubscriber());
 
                 } else {
                     Toast.makeText(UpdateParcel.this, "" + confirm.getText(), Toast.LENGTH_SHORT).show();

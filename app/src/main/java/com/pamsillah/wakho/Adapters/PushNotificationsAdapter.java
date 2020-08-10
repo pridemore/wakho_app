@@ -16,7 +16,9 @@ import com.pamsillah.wakho.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Java Developer on 22/11/2017.
@@ -43,7 +45,6 @@ public class PushNotificationsAdapter extends RecyclerView.Adapter<PushNotificat
         this.notifications = notifications;
         this.context = context;
     }
-
     @Override
     public PushNotificationsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v;
@@ -58,7 +59,9 @@ public class PushNotificationsAdapter extends RecyclerView.Adapter<PushNotificat
     public void onBindViewHolder(PushNotificationsAdapter.ViewHolder holder, final int position) {
 
         View v = holder.itemView;
-
+        Set<Notification> set = new HashSet<>(notifications);
+        notifications.clear();
+        notifications.addAll(set);
         final Notification notification = notifications.get(position);
         holder.title.setText(notification.getDescription());
 
@@ -77,7 +80,9 @@ public class PushNotificationsAdapter extends RecyclerView.Adapter<PushNotificat
             @Override
             public void onClick(View view) {
                 MyApplication.getinstance().setNotification(notification);
-                context.startActivity(new Intent(context, Help.class));
+                Intent intent = new Intent(context, Help.class);
+                intent.putExtra("notifKey", notifications.get(position).getSnapshotKey());
+                context.startActivity(intent);
                 notifyDataChanged();
             }
         });

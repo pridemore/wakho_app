@@ -2,6 +2,7 @@ package com.pamsillah.wakho;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -66,6 +67,7 @@ public class PostsRecyclerViewAdapter extends RecyclerView.Adapter<PostsRecycler
             weight = (TextView) itemView.findViewById(R.id.postWeight);
             imageView = (ImageView) itemView.findViewById(R.id.postImage);
             dateposted = (TextView) itemView.findViewById(R.id.newpost);
+
         }
 
 

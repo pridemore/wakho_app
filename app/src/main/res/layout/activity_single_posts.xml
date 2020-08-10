@@ -193,8 +193,10 @@
                 android:id="@+id/quote"
                 android:layout_gravity="center"
                 android:text="Quote"
+                android:background="@drawable/my_button_bg"
                 android:textColor="@color/textColorPrimary"
-                android:background="@drawable/gradient_bg" />
+                />
+<!--                android:background="@drawable/gradient_bg" />-->
 
             <Button
                 android:layout_width="100dp"
@@ -203,8 +205,12 @@
                 android:layout_gravity="center"
                 android:text="Accept"
                 android:textColor="@color/textColorPrimary"
-                android:background="@drawable/gradient_bg"
-                android:layout_marginLeft="50dp" />
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/my_button_bg"
+                />
+<!--                android:background="@drawable/gradient_bg"-->
+                android:layout_marginLeft="50dp"
+            />
 
         </LinearLayout>
     </LinearLayout>

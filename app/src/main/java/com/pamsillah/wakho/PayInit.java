@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -57,12 +58,13 @@ public class PayInit extends AppCompatActivity {
         negTitle = (TextView) findViewById(R.id.n);
         progressDialog = new ProgressDialog(PayInit.this);
         message.setText(notification.getMessage());
+        Post post1=MyApplication.getinstance().getPost();
 
         for (Post post : MyApplication.getinstance().getListPost()
                 ) {
             if (String.valueOf(post.getPostId()).equals(notification.getConverid().split("_")[0].trim())) {
                 MyApplication.getinstance().setPost(post);
-                negTitle.setText(post.getTitle().toUpperCase() + ".neg Final Result");
+                negTitle.setText(post.getTitle().toUpperCase() );
                 break;
             }
 

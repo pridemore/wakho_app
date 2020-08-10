@@ -15,6 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.pamsillah.wakho.Models.Agent;
 import com.pamsillah.wakho.Models.ReadContacts;
 import com.pamsillah.wakho.Models.Subscriber;
@@ -62,8 +64,10 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 if (session.getSubscriber() != null) {
                     Subscriber sub = session.getSubscriber();
-                    subS(sub.getSubscriberId());
-                    searchAgent(String.valueOf(MyApplication.getinstance().getSession().getSubscriber().getSubscriberId()));
+                    if(sub.getSubscriberId()!=null) {
+                        subS(sub.getSubscriberId());
+                        searchAgent(String.valueOf(MyApplication.getinstance().getSession().getSubscriber().getSubscriberId()));
+                    }
 
                     if (sub.getStatus().contains("Pending")) {
                         Intent myac = new Intent(SplashScreen.this, VerificationScreen.class);
@@ -89,7 +93,7 @@ public class SplashScreen extends AppCompatActivity {
     public void searchAgent(final String Id) {
 
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, ConnectionConfig.BASE_URL + "/api/agents", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, DTransUrls.agents, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 

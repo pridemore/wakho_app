@@ -18,6 +18,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -25,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.pamsillah.wakho.Models.Agent;
+import com.pamsillah.wakho.Models.FirebaseNotificationServices;
 import com.pamsillah.wakho.Models.Post;
 import com.pamsillah.wakho.Models.Subscriber;
 import com.pamsillah.wakho.Parser.AgentParser;
@@ -44,11 +47,14 @@ import java.util.List;
 
 public class PostsFragment extends Fragment implements SearchView.OnQueryTextListener {
     FloatingActionButton fab;
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
+    private TextView emptyState;
     SwipeRefreshLayout swipeContainer;
     List<Post> data = new ArrayList<>();
     private SearchView mSearchView;
     private MenuItem searchMeuItem;
+    //private RecyclerView recycleView;
+
 
     @Nullable
     @Override
@@ -60,7 +66,7 @@ public class PostsFragment extends Fragment implements SearchView.OnQueryTextLis
         swipeContainer = (SwipeRefreshLayout) v.findViewById(R.id.swipeContainer);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        emptyState = v.findViewById(R.id.txtEmptyState);
         data.clear();
 
         fill_with_data();
@@ -77,7 +83,9 @@ public class PostsFragment extends Fragment implements SearchView.OnQueryTextLis
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                ((PostsRecyclerViewAdapter) recyclerView.getAdapter()).clear();
+             if(recyclerView!=null &&recyclerView.getAdapter()!=null){
+                 ((PostsRecyclerViewAdapter) recyclerView.getAdapter()).clear();
+             }
                 fill_with_data();
                 swipeContainer.setRefreshing(false);
             }
@@ -115,13 +123,16 @@ public class PostsFragment extends Fragment implements SearchView.OnQueryTextLis
             public void onResponse(JSONArray response) {
 
                 data = PostsParser.parseFeed(response);
-progressDialog.dismiss();
+                showEmptyState(data.isEmpty());
+                progressDialog.dismiss();
                 progressDialog.cancel();
                 if (data.size() > 0) {
 
                     recyclerView.setAdapter(new PostsRecyclerViewAdapter(data, getActivity()));
                     MyApplication.getinstance().setListPost(data);
                     recyclerView.getAdapter().notifyDataSetChanged();
+                } else {
+                    progressDialog.setMessage("No Posts");
                 }
 
 
@@ -157,14 +168,10 @@ progressDialog.dismiss();
                 Agent aget = MyApplication.getinstance().getSession().getAgent();
                 Subscriber sub = MyApplication.getinstance().getSession().getSubscriber();
 
-
                 if (datta.size() > 0) {
 
                     MyApplication.getinstance().setLstAgent(datta);
-
-
                 }
-
 
             }
         }, new Response.ErrorListener() {
@@ -184,6 +191,16 @@ progressDialog.dismiss();
 
         MyApplication.getinstance().addToRequestQueue(jsonArrayRequest);
 
+    }
+
+    private void showEmptyState(boolean b) {
+        if (b) {
+            emptyState.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            emptyState.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -22,12 +23,14 @@ import com.pamsillah.wakho.Models.Chat;
 import com.pamsillah.wakho.Models.ReadChats;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by psillah on 3/24/2017.
  */
 public class ChatsFragment extends Fragment {
     public RecyclerView chatRecyclerView;
+    private TextView emptyState6;
     public RecyclerView.Adapter chatAdapter;
     public RecyclerView.LayoutManager chatLayoutManager;
     private ArrayList<Chat> chats = new ArrayList<>();
@@ -44,6 +47,7 @@ public class ChatsFragment extends Fragment {
 
 //fab=(FloatingActionButton)v.findViewById(R.id.fabchats);
 //
+        emptyState6 = v.findViewById(R.id.txtEmptyState);
         fab = (FloatingActionButton) v.findViewById(R.id.fabchats);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +90,7 @@ public class ChatsFragment extends Fragment {
 
                 Chat chat = dataSnapshot.getValue(Chat.class);
 
-
+showEmptyState(chat==null);
                 chat.setId(dataSnapshot.getKey());
                 String phone = null;
                 if (MyApplication.getinstance().getSession().getSubscriber() != null) {
@@ -114,7 +118,7 @@ public class ChatsFragment extends Fragment {
 
                 }
 
-
+                showEmptyState(chat==null);
             }
 
             @Override
@@ -144,6 +148,16 @@ public class ChatsFragment extends Fragment {
                 chatAdapter.notifyDataSetChanged();
 
 
+            }
+
+            private void showEmptyState(boolean b) {
+                if(b){
+                    emptyState6.setVisibility(View.VISIBLE);
+                    chatRecyclerView.setVisibility(View.GONE);
+                }else{
+                    emptyState6.setVisibility(View.GONE);
+                    chatRecyclerView.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

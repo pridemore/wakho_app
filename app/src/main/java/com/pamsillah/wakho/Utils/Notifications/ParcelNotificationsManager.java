@@ -143,7 +143,7 @@ public class ParcelNotificationsManager {
                 "Your confirmition will  be sent to Recipient. Below is your parcel description");
         NotificationsSender.sendNotification(p.getDescription().split(":")[1]
                         .replace("+", ""), null,
-                "Agent " + agent.getCompanyName() + " has confirmed that he he/she have delivered your parcel " +
+                "Your agent " + agent.getCompanyName() + " has confirmed that  they have delivered your parcel " +
                         ".Please confirm on your pending parcel",/*Message to be displayed on the notification*/
                 " Negotiations", /*Message title*/
                 "pending" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
@@ -151,14 +151,41 @@ public class ParcelNotificationsManager {
         );
 
 
+
+
         //adding button click event
         Button dismissButton = (Button) convertView.findViewById(R.id.send);
         dismissButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String phoneNumber= p.getDescription().split(":")[1]
+                        .replace("+", "");
+                if(phoneNumber.substring(0,5).contains("263"))
+                {
+                    NotificationsSender.sendNotification(phoneNumber, null,
+                            "Your agent " + agent.getCompanyName() + " has confirmed that  they have delivered your parcel " +
+                                    ".Please confirm on your pending parcel",/*Message to be displayed on the notification*/
+                            " Negotiations", /*Message title*/
+                            "pending" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
 
+                    );
+                }
+                if(!(phoneNumber.substring(0,4).contains("263")))
+                {
+                    StringBuffer  stringBuffer= new StringBuffer(phoneNumber);
+                    stringBuffer.replace(0,1,"263");
+                    NotificationsSender.sendNotification(stringBuffer.toString(), null,
+                            "Your agent " + agent.getCompanyName() + " has confirmed that  they have delivered your parcel " +
+                                    ".Please confirm on your pending parcel",/*Message to be displayed on the notification*/
+                            " Negotiations", /*Message title*/
+                            "pending" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
+
+                    );
+                }
 
                 update(" Agent " + agent.getCompanyName() + " delivered the parcel to Recipient on [" + new Date().toString() + "] .", p, progressDialog);
+                deleteChat(p,p.getSubscriber(),agent);
+
 
 
             }
@@ -172,7 +199,6 @@ public class ParcelNotificationsManager {
 
     public static void conFirmDelivery(AppCompatActivity context, final ProgressDialog progressDialog,final Agent agent,final Post p,final Subscriber subscriber) {
         ////////////////////////////////////////////////////////////////////////////////////////////
-        //
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
         LayoutInflater inflater = context.getLayoutInflater();
         View convertView = inflater.inflate(R.layout.updates, null);
@@ -185,15 +211,15 @@ public class ParcelNotificationsManager {
         desc.setText(p.getDescription().split(":")[2]);
         desc.setEnabled(false);
         TextView dialogtxt = convertView.findViewById(R.id.textview);
-        dialogtxt.setText("Thank You  " + subscriber.getName().split(" ")[1] + " Your confirmition has been sent to Agent and Parcel Owner.");
+        dialogtxt.setText("Your confirmation has been sent to Agent and Parcel Owner.");
         NotificationsSender.sendNotification(p.getAgentID(), null,
                 "Recipient " + p.getDescription() + " has confirmed that  they have Received your parcel" +
-                        ".Post Closed. ",/*Message to be displayed on the notification*/
+                        ".Post Closed.  Request payment via your Wallet Services ",/*Message to be displayed on the notification*/
                 " Negotiations", /*Message title*/
                 "pending" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
 
         );
-        NotificationsSender.sendNotification(p.getSubscriberId(), null, "Recipient " + p.getDescription() + " has confirmed that he he/she have Received your parcel.Post Closed. Request payment via your Wallet Services ",/*Message to be displayed on the notification*/
+        NotificationsSender.sendNotification(p.getSubscriberId(), null, "Recipient " + p.getDescription() + " has confirmed that  they have Received your parcel.Post Closed.",/*Message to be displayed on the notification*/
                 " Negotiations", /*Message title*/
                 "pending" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
 
@@ -208,8 +234,8 @@ public class ParcelNotificationsManager {
 
 
                 update("Recipient received Parcel from Agent on [" + new Date().toString() + "] " +
-                        ". Parcel Officially Closed no disputes will be opened for this parcell now ", p, progressDialog);
-                deleteChat(p,subscriber,agent);
+                        ". Parcel Officially Closed no disputes will be opened for this parcel now ", p, progressDialog);
+
 
             }
         });
@@ -285,18 +311,19 @@ public class ParcelNotificationsManager {
 
     }
 
+
     public static  void deleteChat(Post p,Subscriber subscriber, Agent agent){
         String negId = ""+p.getPostId()+"_"+agent.getAgentId()+"_"+subscriber.getSubscriberId();
-        String chatId = subscriber.getPhone().replace("+","263")
-                +"_"+agent.getCompanyTel().replace("+","263");
+        String chatId = subscriber.getPhone().replace("+","")
+                +"_"+agent.getCompanyTel().replace("+","");
         String alternative = agent.getCompanyTel().
-                replace("+","263")+"_"+subscriber.getPhone()
-                .replace("+","263")
+                replace("+","")+"_"+subscriber.getPhone()
+                .replace("+","")
                 ;
 
         FirebaseDatabase firebase = FirebaseDatabase.getInstance();
-        firebase.getReference().child("chat").child(chatId).removeValue();
-        firebase.getReference().child("chat").child(alternative).removeValue();
+        firebase.getReference().child("Conversations").child(chatId).removeValue();
+        firebase.getReference().child("Conversations").child(alternative).removeValue();
         firebase.getReference().child(("Negotiations")).child(negId).removeValue();
     }
 }
