@@ -54,7 +54,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/n"
                     android:layout_marginTop="25dp"
-                    android:text="Congrats ,Allen Bonasi Have accepted your offer of $26 .Please proceed to payment or cancel the deal."
+                    android:text="Congrats ,Allen Bonasi Have accepted your offer of $26 .Please proceed to payment or cancel the deal. Wait until it says status paid. After payment, go to Pending for handover process"
                     android:textAlignment="center"
                     android:textSize="20dp" />
 

@@ -107,8 +107,7 @@ public class PendingActivity extends Activity {
 
                         }
                         else if ((currentAgent != null) && (String.valueOf(currentAgent.getAgentId()).equals(p.getAgentID())) && (p.getStatus().contains("Paid.Waiting") )) {
-                            for (Subscriber a : MyApplication.getinstance().getSubscribers()
-                                    ) {
+                            for (Subscriber a : MyApplication.getinstance().getSubscribers()) {
                                 if (String.valueOf(a.getSubscriberId()).equals(p.getSubscriberId())) {
                                     p.setStatus(p.getStatus() + "#" + currentAgent.getCompanyName() + "#" + currentAgent.getCompanyLogo() + "#" + sub.getName() + " " + sub.getSurname());
 

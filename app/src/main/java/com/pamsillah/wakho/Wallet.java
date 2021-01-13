@@ -155,7 +155,7 @@ if(wallet ==null)
                     public void onClick(View v) {
 
                         Firebase mRef = new Firebase("https://wakhoapp.firebaseio.com/PayRequests/" + MyApplication.getinstance().session.getSubscriber().getSubscriberId());
-                        mRef.child("Message").setValue(subscriber.getName() + " Have requested payment the the job done" + "Here are this Agent Details Agent ID :" + agent.getAgentId() + " Drawable Amount : " + wallet.getDrawable() + ". Thank you");
+                        mRef.child("Message").setValue(subscriber.getName() + " Have requested payment for the job done" + "Here are this Agent Details Agent ID :" + agent.getAgentId() + " Drawable Amount : " + wallet.getDrawable() + ". Thank you");
                         dialog.dismiss();
                     }
                 });

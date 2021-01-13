@@ -45,7 +45,7 @@ public class UpdateParcel extends AppCompatActivity {
         toolbar.setTitle("Post Delivery Update");
         toolbar.setSubtitle("delivery updates.");
         confirm = findViewById(R.id.confirm);
-        confirm.setTextColor(Color.BLACK);
+        confirm.setTextColor(Color.WHITE);
         towner = findViewById(R.id.towner);
         towner.setTextColor(Color.BLACK);
         stat = findViewById(R.id.stat);

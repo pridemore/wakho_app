@@ -179,7 +179,7 @@ public class SingleRequest extends AppCompatActivity {
                                         .getSubscriber().getPhone(), "Congrats Agent "
                                         + MyApplication.getinstance().getSession().getAgent().
                                         getCompanyName() + " Have accepted Your offer of $" + posts.getProposedFee() + " " +
-                                        ". Please proceed to payment or cancel the deal.",/*Message to be displayed on the notification*/
+                                        ". Please proceed to payment or cancel the deal.Wait until status is paid. After payment go to Pendings for handover.",/*Message to be displayed on the notification*/
                                 " Negotiations", /*Message title*/
                                 "accept" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
 

@@ -1,5 +1,5 @@
 package com.pamsillah.wakho.app_settings;
 
 public class ConnectionConfig {
-    public static final String BASE_URL="http://994dcbbc98d8.ngrok.io/wakho_service";
+    public static final String BASE_URL="http://87baef65f0a6.ngrok.io";
 }

@@ -144,7 +144,7 @@ public class CartActivity extends AppCompatActivity {
                         Toast.makeText(CartActivity.this, "", Toast.LENGTH_SHORT).show();
                         NotificationsSender.sendNotification(posts.getSubscriberId(),
                                 posts.getPostId() + "_" + MyApplication.getinstance().getSession().getAgent().getAgentId() + "_" + posts.getSubscriberId() + "_" + MyApplication.getinstance().getSession().getSubscriber().getPhone(),
-                                "Congrats Agent " + MyApplication.getinstance().getSession().getAgent().getCompanyName() + " accepted Your offer of $" + posts.getProposedFee() + " . Please proceed to payment or cancel the deal.",/*Message to be displayed on the notification*/
+                                "Congrats Agent " + MyApplication.getinstance().getSession().getAgent().getCompanyName() + " accepted Your offer of $" + posts.getProposedFee() + " . Please proceed to payment or cancel the deal. Wait until status is paid. After payment go to Pendings for handover.",/*Message to be displayed on the notification*/
                                 " Negotiations", /*Message title*/
                                 "accept" /*Notification type, You can use this to determine what activities to stack when the receiver clicks on the notification item*/
 
