@@ -3,7 +3,7 @@ package com.pamsillah.wakho;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,8 +15,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.pamsillah.wakho.Models.Agent;
 import com.pamsillah.wakho.Models.ReadContacts;
 import com.pamsillah.wakho.Models.Subscriber;
@@ -27,7 +25,6 @@ import com.pamsillah.wakho.Parser.WalletParser;
 import com.pamsillah.wakho.Utils.DTransUrls;
 import com.pamsillah.wakho.Utils.Session;
 import com.pamsillah.wakho.app_settings.AuthHeader;
-import com.pamsillah.wakho.app_settings.ConnectionConfig;
 
 import org.json.JSONArray;
 

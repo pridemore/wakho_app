@@ -2,7 +2,7 @@ package com.pamsillah.wakho;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -10,7 +10,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.firebase.client.Firebase;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.FirebaseDatabase;
 import com.pamsillah.wakho.Models.Agent;
 import com.pamsillah.wakho.Models.Chat;
 import com.pamsillah.wakho.Models.Message;
